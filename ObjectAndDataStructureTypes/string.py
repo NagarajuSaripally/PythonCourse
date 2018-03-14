@@ -158,32 +158,3 @@ lastName = "Doe"
 age = "26"
 
 print(f'His name is {firstName}, {lastName} and his age is {age}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
