@@ -108,6 +108,8 @@ list4.sort()
 print(list4)
 
 
+# there is method in python -> sorted(list4) --> it returns the sorted array
+
 
 '''
 Dictonaries:
