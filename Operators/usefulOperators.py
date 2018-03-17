@@ -90,10 +90,41 @@ input: gives user option to enter a value
 input always retuns in a string formate, if we wanna convert to integer or float, there is int() and float()
 '''
 
-
 result = input('what is your name? ')
 
 print(result)
 
 
+'''
 
+List comprehension: 
+'''
+word = 'hello'
+my_list = []
+
+for letter in word:
+	my_list.append(letter)
+
+print(my_list)
+
+# instead of appending this characters into the my_list we can use "list comprehension" concept like below
+# letter and letter should match
+
+
+word1 = "Hello World"
+my_list2 = [letter for letter in word1]
+print(my_list2)
+
+
+# we can perform operation on the first variable in the list comprehension
+
+my_list_3 = [num**2 for num in range(0,11)]
+print(my_list_3)
+
+
+
+# we can also add if condition in this comprehension which is
+
+my_list_4 = [num**2 for num in range(0, 11) if num%2 == 0]
+
+print(my_list_4)
