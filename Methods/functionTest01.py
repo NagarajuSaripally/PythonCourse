@@ -40,3 +40,81 @@ def makes_twenty(num1, num2):
 print(f'Makes twenty with 20, 18 {makes_twenty(20, 18)}')
 print(f'Makes twenty with 12, 8 {makes_twenty(12, 8)}')
 print(f'Makes twenty with 13, 21 {makes_twenty(13, 21)}')
+
+
+
+'''
+level 1:
+'''
+
+# old Macdonald: write a function that capitalizes the first and fouth letters of a name
+
+def old_macdonald(name):
+	newName = ''
+	for index, x in enumerate(name):
+		if index == 0 or index == 3:
+			newName += x.upper()
+		else:
+			newName += x.lower()
+	return newName;
+
+print(f'Old Macdonald: Make 1 and 4 the charactrer upper case: {old_macdonald("macdonald")}')
+print(f'Old Macdonald: Make 1 and 4 the charactrer upper case: {old_macdonald("stevejobs")}')
+
+
+# master Yoda: given a sentence, return a sentence with the words reversed.
+def master_yoda(sentence):
+	return " ".join(sentence.split(' ')[::-1])
+
+print(f'Master yoda: {master_yoda("I am home")}')
+print(f'Master yoda: {master_yoda("we are ready")}')
+
+
+# almost There : given an integer n, return True if n is within 10 of either 100 or 200
+
+#Method 1:
+
+def almost_there(num):
+	return num in range(90, 111) or num in range(190, 211)
+
+#method 2:
+
+def almost_there_2(num):
+	if (90 <= num <=110) or (190 <= num <= 210):
+		return True
+	else:
+		return False
+
+print(f'Almost There: 90 --> {almost_there(90)}')
+print(f'Almost There: 104 --> {almost_there(104)}')
+print(f'Almost There: 150 --> {almost_there(150)}')
+print(f'Almost There: 209 --> {almost_there(209)}')
+print(f'Almost There: 90 --> {almost_there_2(90)}')
+print(f'Almost There: 104 --> {almost_there_2(104)}')
+print(f'Almost There: 150 --> {almost_there_2(150)}')
+print(f'Almost There: 209 --> {almost_there_2(209)}')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
