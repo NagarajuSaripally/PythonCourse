@@ -96,18 +96,91 @@ print(f'Almost There: 209 --> {almost_there_2(209)}')
 
 
 
+'''
+Level 2:
+'''
+
+# give a list of ints, return Tre if the array contains 3 next to a 3 somewhere:
+
+# means [1,3,3,] --> return True, [1,3,1,3] --> return False
 
 
+def has_33(myList):
+	for index, x in enumerate(myList):
+		if index != len(myList) -1:
+			if myList[index] == 3 and myList[index+1] == 3 :
+				return True
+	return False;
+
+print(f'Has_33 in [1,3,3] -> {has_33([1,3,3])}')
+print(f'Has_33 in [1,3,1,3] -> {has_33([1,3,1,3])}')
+print(f'Has_33 in [3,1,3,] -> {has_33([3,1,3])}')
 
 
+# paper doll: Given a string, return a string where for every character in the original there are three chracters
+
+def paper_doll(text):
+	my_result = ''
+	for character in text:
+		my_result += character * 3
+	return my_result
+
+print(f'Paper Doll: Hello --> {paper_doll("Hello")}')
+print(f'Paper Doll: Mississippi --> {paper_doll("Mississippi")}')
 
 
+# Black Jack: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum
+# if their sum exceeds 21 and theres an eleven, redc ue the total sum by 10
+# Finally if rthe sume(even after adjustment) exceeds 21 return 'BUST'
+
+def blackjack(num1, num2, num3):
+	sumOfNums = num1 + num2 + num3
+	if sumOfNums <= 21:
+		return sumOfNums
+	elif num1 == 11 or num2 == 11 or num3 == 11:
+		sumOfNums -= 10
+		if sumOfNums > 21:
+			return 'BUST'
+		else:
+			return sumOfNums
+	else:
+		return 'BUST'
 
 
+print(f'Black Jack: (5, 6, 7) --> {blackjack(5,6,7)}')
+print(f'Black Jack: (9, 9, 9) --> {blackjack(9, 9, 9)}')
+print(f'Black Jack: (9, 9, 11) --> {blackjack(9, 9, 11)}')
+print(f'Black Jack: (9, 10, 11) --> {blackjack(9, 10, 11)}')
+print(f'Black Jack: (11, 10, 11) --> {blackjack(11, 10, 11)}')
 
 
+#summer of 69: Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and
+#extending to the next 9 (every 6 will be followed by at least 9). return 0 for no numbers
 
+def summer_69(myList):
+	_indecisOf6 = []
+	_indecisOf9 = []
 
+	for index, x in enumerate(myList):
+		if myList[index] == 6:
+			_indecisOf6.append(index)
+		elif myList[index] == 9:
+			_indecisOf9.append(index)
+	if len(_indecisOf9) == 0 and len(_indecisOf6) == 0:
+		return sum(myList)
+	else:
+		list1 = myList[0:_indecisOf6[-1]:1]
+		list2 = myList[_indecisOf9[0]+1 : len(myList) : 1]
+		subList = list1 + list2
+		if len(subList) == 0:
+			return 0
+		else: 
+			return sum(subList)
+
+print(f'summer_69 : [1,3,5] --> {summer_69([1,3,5])}')
+print(f'summer_69 : [4,5,6,7,8,9] --> {summer_69([4,5,6,7,8,9])}')
+print(f'summer_69 : [2,1,6,9,11] --> {summer_69([2,1,6,9,11])}')
+print(f'summer_69 : [1,2,3,6,4,6,9] --> {summer_69([1,2,3,6,4,6,9])}')
 
 
 
