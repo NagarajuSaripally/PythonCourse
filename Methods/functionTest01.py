@@ -15,16 +15,21 @@ def lesser_of_two_evens(num1, num2):
 
 print(f'Lesser of two even numbers: {lesser_of_two_evens(12,3)}')
 
+#method 2:
+def lesser_of_two_evens(num1, num2):
+	if num1 % 2 == 0 and num2 % 2 == 0:
+		return min(num1, num2)
+	else:
+		return max(num1, num2)
+
+
 
 
 # Animal Crackers: write a function takes a two word string and returns True if both words begin with same letter
 
 def animal_crackers(string):
 	my_string = string.split(' ')
-	if my_string[0][0] == my_string[1][0]:
-		return True
-	else:
-		return False
+	return my_string[0][0] == my_string[1][0]
 
 print(f'Animal Cracker: {animal_crackers("Levelheaded Llama")}')
 
@@ -32,10 +37,7 @@ print(f'Animal Cracker: {animal_crackers("Levelheaded Llama")}')
 # return False
 
 def makes_twenty(num1, num2):
-	if num1 == 20 or num2 == 20 or (num1 + num2) == 20:
-		return True 
-	else:
-		return False
+	return num1 == 20 or num2 == 20 or (num1 + num2) == 20
 
 print(f'Makes twenty with 20, 18 {makes_twenty(20, 18)}')
 print(f'Makes twenty with 12, 8 {makes_twenty(12, 8)}')
@@ -61,6 +63,14 @@ def old_macdonald(name):
 print(f'Old Macdonald: Make 1 and 4 the charactrer upper case: {old_macdonald("macdonald")}')
 print(f'Old Macdonald: Make 1 and 4 the charactrer upper case: {old_macdonald("stevejobs")}')
 
+#method 2:
+
+def old_macdonald2(name):
+	if len(name) > 3:
+		return name[:3].capitalize() + name[3:].capitalize()
+	else:
+		return 'Name is too short!'
+
 
 # master Yoda: given a sentence, return a sentence with the words reversed.
 def master_yoda(sentence):
@@ -80,10 +90,7 @@ def almost_there(num):
 #method 2:
 
 def almost_there_2(num):
-	if (90 <= num <=110) or (190 <= num <= 210):
-		return True
-	else:
-		return False
+	return (90 <= num <=110) or (190 <= num <= 210)
 
 print(f'Almost There: 90 --> {almost_there(90)}')
 print(f'Almost There: 104 --> {almost_there(104)}')
@@ -112,6 +119,14 @@ def has_33(myList):
 				return True
 	return False;
 
+# Method 2:
+
+def has_33_2(myList):
+	for i in range(0, len(myList)-1):
+		if nums[i:i+2] == [3,3]:
+			return True
+	return False
+
 print(f'Has_33 in [1,3,3] -> {has_33([1,3,3])}')
 print(f'Has_33 in [1,3,1,3] -> {has_33([1,3,1,3])}')
 print(f'Has_33 in [3,1,3,] -> {has_33([3,1,3])}')
@@ -137,7 +152,7 @@ def blackjack(num1, num2, num3):
 	sumOfNums = num1 + num2 + num3
 	if sumOfNums <= 21:
 		return sumOfNums
-	elif num1 == 11 or num2 == 11 or num3 == 11:
+	elif num1 == 11 or num2 == 11 or num3 == 11:     #sum(num1,num2,num3) == 11 and 11 in (num1,num2,num3)
 		sumOfNums -= 10
 		if sumOfNums > 21:
 			return 'BUST'
@@ -182,12 +197,90 @@ print(f'summer_69 : [4,5,6,7,8,9] --> {summer_69([4,5,6,7,8,9])}')
 print(f'summer_69 : [2,1,6,9,11] --> {summer_69([2,1,6,9,11])}')
 print(f'summer_69 : [1,2,3,6,4,6,9] --> {summer_69([1,2,3,6,4,6,9])}')
 
+#Method 2: 
+def summer_69_1(arr):
+    total = 0
+    add = True
+    for num in arr:
+        while add:
+            if num != 6:
+                total += num
+                break
+            else:
+                add = False
+        while not add:
+            if num != 9:
+                break
+            else:
+                add = True
+                break
+    return total
 
 
+'''
+Challenging Problems
+'''
+
+# Spy Game: Write a function that takes in a lit of integers and retuns True if it contains 007 in order.
+
+def spy_game(myList):
+	filteredList = []
+	for item in myList:
+		if item == 0 or item == 7:
+			filteredList.append(item)
+	if len(filteredList) < 3:
+		return False
+	else:
+		for ind, myItem in enumerate(filteredList):
+			if (ind+2) < len(filteredList):
+				if filteredList[ind] == 0 and filteredList[ind+1] == 0 and filteredList[ind+2] == 7:
+					return True
+	return False
+
+print(f'spyGame : [1,2,4,0,0,7,5] --> {spy_game([1,2,4,0,0,7,5])}')
+print(f'spyGame : [1,0,2,4,0,5,7] --> {spy_game([1,0,2,4,0,5,7])}')
+print(f'spyGame : [1,7,2,0,4,5,0] --> {spy_game([1,7,2,0,4,5,0])}')
+
+#Method 2: 
+def spy_game_2(nums):
+	code = [0,0,7,'x']
+	for num in nums:
+		if num == code[0]:
+			code.pop(0)
+	return len(code) == 1
+
+# Count Primes: write a function that retuns the number of prime numbers that exist up to and including a a given number
+
+def count_primes(num):
+	if num < 2:
+		return 0
+	prime_list = []
+	for x in range(2, num+1):
+		count = 0
+		for y in range(2, x+1):
+			if x % y == 0:
+				count += 1
+			if count > 1:
+				break
+		if count == 1:
+			prime_list.append(x)
+	return len(prime_list)
+
+print(f'Count of primes till 100 --> {count_primes(100)}')
+print(f'Count of primes till 1000 --> {count_primes(1000)}')
 
 
+# print Big: Write a function that takes in a single letter, and returns a 5X5 representation of that letter:
 
 
+def print_big(letter):
+    patterns = {1:'  *  ',2:' * * ',3:'*   *',4:'*****',5:'**** ',6:'   * ',7:' *   ',8:'*   * ',9:'*    '}
+    alphabet = {'A':[1,2,4,3,3],'B':[5,3,5,3,5],'C':[4,9,9,9,4],'D':[5,3,3,3,5],'E':[4,9,4,9,4]}
+    for pattern in alphabet[letter.upper()]:
+        print(patterns[pattern])
 
-
-
+print_big("a")
+print_big("b")
+print_big("c")
+print_big("d")
+print_big("e")
