@@ -307,11 +307,7 @@ array_front9([1, 2, 3, 4, 5]) → False
 """
 
 def array_front9(nums):
-  if len(nums) < 4:
-    return (9 in nums)
-  else:
-    myResult = nums[0:4]
-    return (9 in myResult)
+	return (9 in nums[0:4])
 
 
 """
@@ -346,6 +342,6 @@ def string_match(a, b):
   count = 0
   for ind, character in enumerate(a):
     for i, char in enumerate(b):
-      if a[ind:ind+2] == b[i:i+2] and len(a[ind:ind+2]) > 1 and len(b[i:i+2])>1 and ind == i:
+      if (a[ind:ind+2] == b[i:i+2]) and (len(a[ind:ind+2]) > 1) and (len(b[i:i+2])>1) and (ind == i):
         count += 1
   return count
