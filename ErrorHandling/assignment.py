@@ -62,3 +62,22 @@ def ask():
             print("If incorrect, please enter integer else good bye!")
 
 ask()
+
+def factorial():
+    while True:
+        try:
+            inputValue = int(input("Please enter an integer: "))
+            result = 1
+            for num in range(1, inputValue+1):
+                result *= num
+            print(f'Factorial of {inputValue} is --> {result}' )
+        except:
+            print("Type Error occured, you should enter only integers")
+            continue
+        else:
+            print("You got your factorial, See you soon, Thanks!")
+            break
+        finally:
+            print("If incorrect, please enter integer else good bye!")
+
+factorial()
