@@ -7,6 +7,8 @@ for lists:  append(), pop() etc
 
 How we can discover our own: help(list.insert). --> in jupitor editor : Shift + tab
 
+built in help function: help(...)
+
 3) options: docs.python.org : Python Standard Library.
 
 syntax of defining the function:

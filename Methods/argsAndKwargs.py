@@ -17,6 +17,7 @@ def myfunc3(*args):
 myfunc3(10,20,30,40,50,60)
 
 #instead of printing the tuples, if we wanna key and value pairs like dictionaries, we can use **kwargs
+# **kwargs --> keyword arguments
 
 def myfunc4(**kwargs):
 	if 'fruit' in kwargs:

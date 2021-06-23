@@ -1,0 +1,38 @@
+* Pyhton is also a dyanmic type programming language like Javascript
+
+To Know the type of a variable we can use method
+type(a): which gives type
+
+* Rever indexing for string from right to left
+
+* to know the length of a string we have method call len()
+
+len('hello') ---> 5
+
+Indexing ---> slicing:
+Slicing:
+
+to get all the letter from index 3:
+
+mystring = 'abcdefghijk'
+
+mytring[2:]   cdefghijk
+mystring[3:] abc
+mystring[3:6] def
+
+all the way from the beginning to end the end
+
+mystring[::]
+
+step size: mystring[::2] --> 'acegj'
+
+reverse order: mystring[::-1]
+
+String Properties & String methods:
+
+* strings are immutables
+
+* string concatenation: x = 'Hello World'
+* x = X + " it is beautiful outside"  --> x = Hello worlds it is beautiful outside
+
+*
